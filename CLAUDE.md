@@ -33,3 +33,8 @@ task-board プロジェクト。
 
 > TODO: プロジェクト固有のコーディング規約(命名規則、フォーマッタ/リンター設定など)が
 > 決まり次第、ここに記載してください。
+
+## デプロイ情報
+
+- 本番URL：https://task-board-67up.vercel.app
+- Supabaseプロジェクト名：komoyasan's Project
