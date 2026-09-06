@@ -1,0 +1,46 @@
+import { supabase } from './supabaseClient'
+
+// 物件テーブル(properties)に対するCRUD操作をまとめたモジュール
+const TABLE = 'properties'
+
+// 物件一覧を取得する（RLSにより自分が登録した物件のみ取得される）
+export async function fetchProperties() {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if (error) throw error
+  return data
+}
+
+// 物件を新規登録する
+export async function createProperty({ name, rent, area, layout, userId }) {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .insert({ name, rent, area, layout, user_id: userId })
+    .select()
+    .single()
+
+  if (error) throw error
+  return data
+}
+
+// 物件を更新する
+export async function updateProperty(id, { name, rent, area, layout }) {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .update({ name, rent, area, layout })
+    .eq('id', id)
+    .select()
+    .single()
+
+  if (error) throw error
+  return data
+}
+
+// 物件を削除する
+export async function deleteProperty(id) {
+  const { error } = await supabase.from(TABLE).delete().eq('id', id)
+  if (error) throw error
+}

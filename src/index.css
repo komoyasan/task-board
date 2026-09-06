@@ -6,6 +6,8 @@
   --border: #ddd;
   --accent: #2563eb;
   --accent-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
   --error: #dc2626;
   --info: #2563eb;
 
@@ -51,6 +53,24 @@ button:hover:not(:disabled) {
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: #f0f0f0;
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+button.danger:hover:not(:disabled) {
+  background: var(--danger-hover);
 }
 
 .loading {
@@ -159,7 +179,57 @@ button:disabled {
   margin-bottom: 4px;
 }
 
-.property-area {
+.property-area,
+.property-layout {
   color: #666;
   font-size: 14px;
+}
+
+.property-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.property-card-actions button {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.properties-toolbar {
+  margin-bottom: 20px;
+}
+
+/* 物件の新規登録・編集フォーム */
+.property-form {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.property-form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  margin-top: 12px;
+}
+
+.property-form label:first-child {
+  margin-top: 0;
+}
+
+.property-form input {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.property-form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
 }
